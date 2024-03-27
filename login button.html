@@ -1,0 +1,21 @@
+<script>
+  // Load the Google Sign-In API with your Client ID
+  gapi.load('auth2', function() {
+    gapi.auth2.init({
+      client_id: '664520209184-71jrkdto38t053k36qhunlmi7v2r73h2.apps.googleusercontent.com',
+    });
+  });
+
+  // Function to handle Google Sign-In
+  function handleGoogleSignIn() {
+    gapi.auth2.getAuthInstance().signIn().then(function() {
+      // Handle successful login here, e.g., redirect the user to a different page.
+    }, function(error) {
+      // Handle error here.
+      console.error('Google Sign-In Error:', error);
+    });
+  }
+
+  // Add an event listener to the "Log In" button
+  document.getElementById('login-button').addEventListener('click', handleGoogleSignIn);
+</script>
